@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Shop · Cute Things by Eca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<script>
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "palette": "ivory",
+  "typePair": "cormorant_inter",
+  "ctaStyle": "icons_compact"
+}/*EDITMODE-END*/;
+</script>
+<style>
+  .filters{display:flex;gap:6px;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin-bottom:36px;align-items:center;}
+  .filter{font-family:var(--f-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--fg-dim);padding:8px 14px;border-radius:99px;border:1px solid transparent;transition:all .15s;display:inline-flex;gap:8px;align-items:center;cursor:pointer;}
+  .filter .count{color:var(--fg-mute);font-size:10px;}
+  .filter:hover{color:var(--fg);}
+  .filter.active{background:var(--fg);color:var(--bg);}
+  .filter.active .count{color:var(--bg);opacity:0.55;}
+  .sort-group{margin-left:auto;display:flex;gap:14px;align-items:center;color:var(--fg-mute);}
+  .sort-group select{font-family:var(--f-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;background:transparent;color:var(--fg);border:1px solid var(--line-strong);padding:7px 12px;border-radius:99px;cursor:pointer;}
+  .empty{text-align:center;padding:80px 0;color:var(--fg-mute);font-family:var(--f-mono);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;}
+  .help-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:80px;padding-top:48px;border-top:1px solid var(--line);}
+  @media(max-width:820px){.help-row{grid-template-columns:1fr;}}
+  .help-item{padding:20px 0;}
+  .help-item h4{font-family:var(--f-display);font-size:22px;font-weight:500;margin:10px 0 6px;}
+  .help-item h4 em{font-style:italic;color:var(--fg-dim);font-size:13px;font-weight:400;display:block;margin-top:2px;}
+  .help-item p{color:var(--fg-dim);font-size:14px;margin:0;}
+</style>
+</head>
+<body data-screen-label="Catalog Page">
+<div id="shared-nav"></div>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="crumbs"><a href="Store.html">Home</a><span class="sep">/</span><span>Shop · Koleksi</span></div>
+    <h1>The full <em>collection</em>.</h1>
+    <p class="lede">Every piece we make, in one place. Each item is hand-cut from full-grain Indonesian leather, saddle-stitched, and numbered. <span class="id">Semua barang kami, dikerjakan dengan tangan di Bandung.</span></p>
+  </div>
+</section>
+
+<section style="padding:56px 0 88px;">
+  <div class="wrap">
+    <div class="filters" id="filters">
+      <button class="filter active" data-cat="all">All <span class="count" id="c-all">14</span></button>
+      <button class="filter" data-cat="bags">Bags · Tas <span class="count" id="c-bags">0</span></button>
+      <button class="filter" data-cat="wallets">Wallets · Dompet <span class="count" id="c-wallets">0</span></button>
+      <button class="filter" data-cat="slings">Slings · Selempang <span class="count" id="c-slings">0</span></button>
+      <button class="filter" data-cat="belts">Belts · Sabuk <span class="count" id="c-belts">0</span></button>
+      <button class="filter" data-cat="shoes">Shoes · Sepatu <span class="count" id="c-shoes">0</span></button>
+      <div class="sort-group">
+        <span class="mono">Sort</span>
+        <select id="sort">
+          <option value="new">Newest first</option>
+          <option value="asc">Price — low to high</option>
+          <option value="desc">Price — high to low</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+
+    <div class="help-row">
+      <div class="help-item">
+        <div class="eyebrow">◆ 01</div>
+        <h4>Not sure what fits?<em>Tidak yakin?</em></h4>
+        <p>Chat us the occasion and we'll suggest 2–3 pieces that work together.</p>
+      </div>
+      <div class="help-item">
+        <div class="eyebrow">◆ 02</div>
+        <h4>Want a custom color?<em>Warna khusus?</em></h4>
+        <p>Most pieces can be made in any of our 12 leather finishes. Takes 14–18 days.</p>
+      </div>
+      <div class="help-item">
+        <div class="eyebrow">◆ 03</div>
+        <h4>Need a gift?<em>Hadiah?</em></h4>
+        <p>We wrap every order by hand with a handwritten note. Free for orders over Rp 500K.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="shared-footer"></div>
+<div id="shared-tweaks"></div>
+
+<script src="shared.js"></script>
+<script>
+function render(filter='all', sort='new'){
+  let items = PRODUCTS.filter(p => filter==='all' || p.cat===filter);
+  if(sort==='asc')  items = items.slice().sort((a,b)=>a.price-b.price);
+  if(sort==='desc') items = items.slice().sort((a,b)=>b.price-a.price);
+  if(sort==='new')  items = items.slice().sort((a,b)=>b.n-a.n);
+  const g = document.getElementById('grid');
+  g.innerHTML = items.length ? items.map(cardHTML).join('') : `<div class="empty" style="grid-column:1/-1;">No pieces in this category yet · Belum ada barang</div>`;
+}
+// Counts
+['bags','wallets','slings','belts','shoes'].forEach(c=>{
+  document.getElementById('c-'+c).textContent = PRODUCTS.filter(p=>p.cat===c).length;
+});
+document.getElementById('c-all').textContent = PRODUCTS.length;
+
+let curFilter='all', curSort='new';
+document.getElementById('filters').addEventListener('click', e=>{
+  const b = e.target.closest('.filter'); if(!b) return;
+  document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  curFilter = b.dataset.cat;
+  render(curFilter,curSort);
+});
+document.getElementById('sort').addEventListener('change', e=>{
+  curSort = e.target.value;
+  render(curFilter,curSort);
+});
+
+// Deep link from footer: ?cat=bags
+const params = new URLSearchParams(location.search);
+const initCat = params.get('cat');
+if(initCat && ['bags','wallets','slings','belts','shoes'].includes(initCat)){
+  curFilter = initCat;
+  document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active', x.dataset.cat===initCat));
+}
+render(curFilter,curSort);
+
+initShared(TWEAK_DEFAULTS, 'shop');
+</script>
+</body>
+</html>
